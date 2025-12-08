@@ -1,6 +1,8 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -138,4 +140,78 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+  /* -----------------------------
+   GLOBAL FIXES: remove white gap
+   ----------------------------- */
+
+/* Prevent accidental horizontal overflow (white strip) */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a; /* same as slate-950 */
+  overflow-x: hidden;        /* IMPORTANT: hide any horizontal overflow */
+}
+
+/* Make sure the page background is dark even if a component doesn't cover full width */
+body {
+  background: #0f172a;
+}
+
+/* Ensure hero section uses the full width and doesn't allow any element to push the page width */
+section#home {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* -----------------------------
+   GSAP SplitText gradient fix
+   ----------------------------- */
+
+/* When GSAP splits text it wraps chars/words in spans.
+   To keep the gradient coloring, apply the gradient+bg-clip on the children too. */
+
+.gradient-split-text,
+.gradient-split-text .split-char,
+.gradient-split-text .split-word,
+.gradient-split-text .split-line {
+  background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 45%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block; /* ensure each split child is inline-block for transform/animation */
+}
+
+/* ensure split-parent default will be visible and not hidden */
+.split-parent {
+  display: inline-block;
+  will-change: transform, opacity;
+  /* avoid accidental clipping that hides text during animation */
+  overflow: visible !important;
+}
+
+/* the characters/words created by GSAP have animate styles via your SplitText.
+   make sure they are visible after animation (sometimes GSAP leaves opacity 0) */
+.split-char, .split-word, .split-line {
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* If you used classes like split-line/word/char in GSAP config, the above will target them. */
+
+/* If you have any large absolutely positioned elements (aurora) that cause overflow,
+   ensure they don't increase layout width: */
+.pointer-events-none,
+.absolute {
+  max-width: 100%;
+}
+
+/* Minor: ensure the hero's buttons don't overflow on extremely narrow screens */
+@media (max-width: 420px) {
+  .max-w-4xl {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 }
