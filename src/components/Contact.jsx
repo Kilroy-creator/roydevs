@@ -320,7 +320,7 @@ export default function Contact() {
                 Prefer a quick chat? Let's connect on social media or schedule a call.
               </p>
               <a 
-                href="https://calendly.com/yourname"
+                href="https://calendly.com/royhenrylangat"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium group hover:scale-105 active:scale-95"

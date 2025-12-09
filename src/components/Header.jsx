@@ -18,7 +18,7 @@ export default function Header({ scrolled }) {
   };
 
   const handleLetsTalkClick = () => {
-    const phoneNumber = '254712345678'; // Replace with your actual WhatsApp number
+    const phoneNumber = '254712601406'; // Replace with your actual WhatsApp number
     const message = 'Hi! I am interested in your services.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
