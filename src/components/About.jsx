@@ -1,14 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+// CountUp Component (you can also install from ReactBits)
+const CountUp = ({ end, duration = 2000, suffix = '' }) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+
+  useEffect(() => {
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const currentCount = Math.floor(end * progress);
+      setCount(currentCount);
+      countRef.current = currentCount;
+
+      if (progress === 1) {
+        clearInterval(interval);
+        setCount(end);
+      }
+    }, 16);
+
+    return () => clearInterval(interval);
+  }, [end, duration]);
+
+  return <span>{count}{suffix}</span>;
+};
 
 export default function About() {
+  const [isVisible, setIsVisible] = useState(false);
+  const statsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const skills = [
     { 
       category: 'Frontend', 
-      items: ['React', 'vue','JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Vite'] 
+      items: ['React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Vite'] 
     },
     { 
       category: 'Backend', 
-      items: ['Python', 'laravel', 'php','Flask', 'FastAPI', 'PostgreSQL', 'MongoDB', 'REST APIs'] 
+      items: ['Python', 'Flask', 'FastAPI', 'PostgreSQL', 'MongoDB', 'REST APIs'] 
     },
     { 
       category: 'Tools & DevOps', 
@@ -50,17 +99,17 @@ export default function About() {
             {skills.map((skill, idx) => (
               <div 
                 key={skill.category} 
-                className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 hover:bg-slate-800/80"
+                className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 hover:bg-slate-800/80 group"
               >
                 <h3 className="text-lg font-bold text-cyan-400 mb-4 flex items-center gap-2">
-                  <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full"></span>
+                  <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform"></span>
                   {skill.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {skill.items.map(item => (
                     <span 
                       key={item} 
-                      className="px-3 py-1 bg-slate-700 text-slate-200 text-sm rounded-full hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200"
+                      className="px-3 py-1 bg-slate-700 text-slate-200 text-sm rounded-full hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-200 cursor-default"
                     >
                       {item}
                     </span>
@@ -71,21 +120,36 @@ export default function About() {
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-3 gap-6 mt-16 pt-16 border-t border-slate-700">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-cyan-400 mb-2">50+</div>
-            <p className="text-slate-400">Projects Completed</p>
+        {/* Stats Section with CountUp Animation */}
+        <div 
+          ref={statsRef}
+          className="grid grid-cols-3 gap-6 mt-16 pt-16 border-t border-slate-700"
+        >
+          <div className="text-center group cursor-default">
+            <div className="text-5xl md:text-6xl font-bold text-cyan-400 mb-2 transition-transform group-hover:scale-110 duration-300">
+              {isVisible ? <CountUp end={50} duration={2000} suffix="+" /> : '0+'}
+            </div>
+            <p className="text-slate-400 text-lg font-medium">Projects Completed</p>
+            <div className="mt-2 h-1 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto group-hover:w-full transition-all duration-300"></div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-cyan-400 mb-2">3+</div>
-            <p className="text-slate-400">Years Experience</p>
+
+          <div className="text-center group cursor-default">
+            <div className="text-5xl md:text-6xl font-bold text-cyan-400 mb-2 transition-transform group-hover:scale-110 duration-300">
+              {isVisible ? <CountUp end={3} duration={1500} suffix="+" /> : '0+'}
+            </div>
+            <p className="text-slate-400 text-lg font-medium">Years Experience</p>
+            <div className="mt-2 h-1 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto group-hover:w-full transition-all duration-300"></div>
           </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-cyan-400 mb-2">30+</div>
-            <p className="text-slate-400">Happy Clients</p>
+
+          <div className="text-center group cursor-default">
+            <div className="text-5xl md:text-6xl font-bold text-cyan-400 mb-2 transition-transform group-hover:scale-110 duration-300">
+              {isVisible ? <CountUp end={30} duration={2000} suffix="+" /> : '0+'}
+            </div>
+            <p className="text-slate-400 text-lg font-medium">Happy Clients</p>
+            <div className="mt-2 h-1 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto group-hover:w-full transition-all duration-300"></div>
           </div>
         </div>
+
       </div>
     </section>
   );

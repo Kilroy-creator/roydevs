@@ -3,6 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import Aurora from './Aurora';
 import SplitText from './SplitText';
 
+
+
 export default function Hero() {
   return (
     <section
@@ -24,31 +26,21 @@ export default function Hero() {
 
       {/* ---------- Main Content ---------- */}
       <div className="relative z-20 text-center max-w-4xl mx-auto px-6 flex flex-col items-center justify-center">
+        
+
         <div className="mb-8 space-y-4">
-          {/* SplitText for intro */}
-          <div className="block">
-            <SplitText
-              text="Hey, I'm Roy"
-              tag="h1"
-              delay={50}
-              duration={0.5}
-              threshold={0}
-              rootMargin="0px"
-              className="text-4xl md:text-6xl font-bold text-white"
-            />
+          {/* SplitText for intro - Simple fallback */}
+          <div className="block min-h-16 flex items-center justify-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-white">
+              Hey, I'm Roy
+            </h1>
           </div>
 
-          {/* Full Stack with gradient - Changed colors */}
-          <div className="block">
-            <SplitText
-              text="Full Stack Developer"
-              tag="h2"
-              delay={40}
-              duration={0.5}
-              threshold={0}
-              rootMargin="0px"
-              className="text-4xl md:text-6xl font-bold text-cyan-400"
-            />
+          {/* Full Stack with gradient */}
+          <div className="block min-h-16 flex items-center justify-center">
+            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Full Stack Developer
+            </h2>
           </div>
         </div>
 
@@ -84,13 +76,18 @@ export default function Hero() {
           33% { transform: translate(30px, -50px) scale(1.1); }
           66% { transform: translate(-20px, 20px) scale(0.9); }
         }
+
+        @keyframes spin {
+          from {
+            transform: rotateY(0deg);
+          }
+          to {
+            transform: rotateY(360deg);
+          }
+        }
+
         .animate-blob {
           animation: blob 7s infinite;
-        }
-        
-        .split-parent {
-          display: block !important;
-          width: 100%;
         }
       `}</style>
     </section>

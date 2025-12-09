@@ -1,8 +1,34 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, Star } from 'lucide-react';
+import GlareHover from '../components/GlareHover';
+
+// Simple CountUp for stats
+const CountUpStat = ({ end, duration = 1500 }) => {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const currentCount = Math.floor(end * progress);
+      setCount(currentCount);
+
+      if (progress === 1) {
+        clearInterval(interval);
+        setCount(end);
+      }
+    }, 16);
+
+    return () => clearInterval(interval);
+  }, [end, duration]);
+
+  return <span>{count}</span>;
+};
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
+  const [hoveredId, setHoveredId] = useState(null);
 
   const projects = [
     {
@@ -17,7 +43,7 @@ export default function Projects() {
       featured: true,
       stats: {
         rating: 4.9,
-        downloads: '2.5k',
+        downloads: 2500,
         stars: 284
       }
     },
@@ -33,7 +59,7 @@ export default function Projects() {
       featured: false,
       stats: {
         rating: 4.8,
-        downloads: '1.8k',
+        downloads: 1800,
         stars: 156
       }
     },
@@ -49,7 +75,7 @@ export default function Projects() {
       featured: true,
       stats: {
         rating: 4.7,
-        downloads: '3.1k',
+        downloads: 3100,
         stars: 342
       }
     },
@@ -65,7 +91,7 @@ export default function Projects() {
       featured: false,
       stats: {
         rating: 4.9,
-        downloads: '4.2k',
+        downloads: 4200,
         stars: 512
       }
     },
@@ -81,7 +107,7 @@ export default function Projects() {
       featured: false,
       stats: {
         rating: 4.6,
-        downloads: '1.2k',
+        downloads: 1200,
         stars: 98
       }
     },
@@ -97,7 +123,7 @@ export default function Projects() {
       featured: false,
       stats: {
         rating: 4.5,
-        downloads: '890',
+        downloads: 890,
         stars: 67
       }
     }
@@ -145,21 +171,23 @@ export default function Projects() {
             </h3>
             <div className="grid grid-cols-1 gap-6 mb-12">
               {featured.map(project => (
-                <div
+                <GlareHover 
                   key={project.id}
                   className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-500/50 transition-all duration-300"
+                  onMouseEnter={() => setHoveredId(project.id)}
+                  onMouseLeave={() => setHoveredId(null)}
                 >
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 transition-all duration-300"></div>
 
                   <div className="relative p-8">
                     <div className="flex flex-col md:flex-row gap-6 items-start">
-                      <div className="text-6xl">{project.image}</div>
+                      <div className="text-6xl group-hover:scale-110 transition-transform duration-300">{project.image}</div>
                       
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-2">
                           <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                          <div className="flex items-center gap-1 bg-slate-700/50 px-3 py-1 rounded-full">
+                          <div className="flex items-center gap-1 bg-slate-700/50 px-3 py-1 rounded-full group-hover:bg-cyan-500/20 transition-all">
                             <Star size={16} className="text-yellow-400" fill="currentColor" />
                             <span className="text-sm text-yellow-400">{project.stats.rating}</span>
                           </div>
@@ -172,22 +200,37 @@ export default function Projects() {
                           {project.tech.map(tech => (
                             <span 
                               key={tech} 
-                              className="px-3 py-1 bg-slate-700/50 text-cyan-300 text-sm rounded-full border border-cyan-500/30"
+                              className="px-3 py-1 bg-slate-700/50 text-cyan-300 text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
                             >
                               {tech}
                             </span>
                           ))}
                         </div>
 
-                        {/* Stats */}
+                        {/* Stats with CountUp */}
                         <div className="flex gap-6 mb-6">
                           <div>
-                            <p className="text-slate-400 text-sm">Downloads</p>
-                            <p className="text-cyan-400 font-bold">{project.stats.downloads}</p>
+                            <p className="text-slate-400 text-sm mb-1">Downloads</p>
+                            <p className="text-cyan-400 font-bold text-lg">
+                              {hoveredId === project.id ? (
+                                <>
+                                  <CountUpStat end={project.stats.downloads} duration={800} />
+                                  {hoveredId === project.id && '+'}
+                                </>
+                              ) : (
+                                `${(project.stats.downloads / 1000).toFixed(1)}k`
+                              )}
+                            </p>
                           </div>
                           <div>
-                            <p className="text-slate-400 text-sm">Stars</p>
-                            <p className="text-cyan-400 font-bold">{project.stats.stars}</p>
+                            <p className="text-slate-400 text-sm mb-1">Stars</p>
+                            <p className="text-cyan-400 font-bold text-lg">
+                              {hoveredId === project.id ? (
+                                <CountUpStat end={project.stats.stars} duration={800} />
+                              ) : (
+                                project.stats.stars
+                              )}
+                            </p>
                           </div>
                         </div>
 
@@ -203,7 +246,7 @@ export default function Projects() {
                           </a>
                           <a
                             href={project.demo}
-                            className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium"
+                            className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium group-hover:scale-105"
                           >
                             <ExternalLink size={18} /> Live Demo
                           </a>
@@ -211,7 +254,7 @@ export default function Projects() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </GlareHover>
               ))}
             </div>
           </>
@@ -225,17 +268,19 @@ export default function Projects() {
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {regular.map(project => (
-                <div
+                <GlareHover
                   key={project.id}
                   className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 h-full flex flex-col"
+                  onMouseEnter={() => setHoveredId(project.id)}
+                  onMouseLeave={() => setHoveredId(null)}
                 >
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 transition-all duration-300"></div>
 
                   <div className="relative p-6 flex flex-col h-full">
                     <div className="flex justify-between items-start mb-4">
-                      <div className="text-5xl">{project.image}</div>
-                      <div className="flex items-center gap-1 bg-slate-700/50 px-2 py-1 rounded-lg">
+                      <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{project.image}</div>
+                      <div className="flex items-center gap-1 bg-slate-700/50 px-2 py-1 rounded-lg group-hover:bg-cyan-500/20 transition-all">
                         <Star size={14} className="text-yellow-400" fill="currentColor" />
                         <span className="text-xs text-yellow-400 font-medium">{project.stats.rating}</span>
                       </div>
@@ -249,20 +294,34 @@ export default function Projects() {
                       {project.tech.map(tech => (
                         <span 
                           key={tech} 
-                          className="px-2 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded-full border border-cyan-500/30"
+                          className="px-2 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    {/* Stats */}
+                    {/* Stats with CountUp */}
                     <div className="flex gap-4 text-sm mb-6">
                       <div className="text-slate-400">
-                        <span className="text-cyan-400 font-bold">{project.stats.downloads}</span> downloads
+                        <span className="text-cyan-400 font-bold">
+                          {hoveredId === project.id ? (
+                            <CountUpStat end={project.stats.downloads} duration={800} />
+                          ) : (
+                            `${(project.stats.downloads / 1000).toFixed(1)}k`
+                          )}
+                        </span>
+                        {' '}downloads
                       </div>
                       <div className="text-slate-400">
-                        <span className="text-cyan-400 font-bold">{project.stats.stars}</span> stars
+                        <span className="text-cyan-400 font-bold">
+                          {hoveredId === project.id ? (
+                            <CountUpStat end={project.stats.stars} duration={800} />
+                          ) : (
+                            project.stats.stars
+                          )}
+                        </span>
+                        {' '}stars
                       </div>
                     </div>
 
@@ -284,7 +343,7 @@ export default function Projects() {
                       </a>
                     </div>
                   </div>
-                </div>
+                </GlareHover>
               ))}
             </div>
           </>
@@ -306,7 +365,7 @@ export default function Projects() {
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium"
+            className="inline-flex items-center gap-2 px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium group hover:scale-105"
           >
             <Github size={20} />
             Visit My GitHub
