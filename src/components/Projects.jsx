@@ -139,7 +139,12 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Selected Work</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 
+  bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 
+  text-transparent bg-clip-text">
+  Selected Work
+</h2>
+
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Projects I've built and shipped to production. Each one represents quality code and attention to detail.
           </p>
@@ -180,14 +185,15 @@ export default function Projects() {
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 transition-all duration-300"></div>
 
-                  <div className="relative p-8">
+                  <div className="relative p-7 md:p-9">
+
                     <div className="flex flex-col md:flex-row gap-6 items-start">
-                      <div className="text-6xl group-hover:scale-110 transition-transform duration-300">{project.image}</div>
+                      <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{project.image}</div>
                       
                       <div className="flex-1">
                         <div className="flex items-start justify-between mb-2">
                           <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                          <div className="flex items-center gap-1 bg-slate-700/50 px-3 py-1 rounded-full group-hover:bg-cyan-500/20 transition-all">
+                          <div className="flex items-center gap-1 bg-slate-700/50 px-2.5 py-1 text-sm rounded-full group-hover:bg-cyan-500/20 transition-all">
                             <Star size={16} className="text-yellow-400" fill="currentColor" />
                             <span className="text-sm text-yellow-400">{project.stats.rating}</span>
                           </div>
@@ -200,7 +206,7 @@ export default function Projects() {
                           {project.tech.map(tech => (
                             <span 
                               key={tech} 
-                              className="px-3 py-1 bg-slate-700/50 text-cyan-300 text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
+                              className="px-2.5 py-1 text-smbg-slate-700/50 text-cyan-300 text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
                             >
                               {tech}
                             </span>
@@ -362,7 +368,7 @@ export default function Projects() {
             Want to see more? Check out my GitHub for additional projects and contributions.
           </p>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Kilroy-creator"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium group hover:scale-105"

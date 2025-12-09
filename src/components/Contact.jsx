@@ -127,8 +127,8 @@ export default function Contact() {
       icon: Linkedin,
       title: 'LinkedIn',
       description: 'Connect with me',
-      contact: 'linkedin.com/in/yourprofile',
-      link: 'https://linkedin.com/in/yourprofile',
+      contact: 'linkedin.com/in/royhenry-kibet-566b57281',
+      link: 'https://linkedin.com/in/royhenry-kibet-566b57281',
       color: 'from-blue-600 to-blue-400',
     },
   ];
