@@ -29,17 +29,12 @@ export default function Header({ scrolled }) {
       scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo - Aligned to left */}
-        <button
-          onClick={handleLogoClick}
-          className="flex items-center gap-2 group relative"
-          aria-label="roydevs home"
-        >
-          {/* Star Border Corners */}
-          <span className="absolute -top-2 -left-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <span className="absolute -top-2 -right-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <span className="absolute -bottom-2 -left-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <span className="absolute -bottom-2 -right-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Logo - Simple without hover effects */}
+       <button
+  onClick={handleLogoClick}
+  className="flex items-center gap-2 group bg-transparent"
+  aria-label="roydevs home"
+>
 
           <div className="relative w-8 h-8 flex items-center justify-center">
             {/* Outer rotating circle */}
@@ -49,7 +44,7 @@ export default function Header({ scrolled }) {
             <div className="relative z-10 w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
           </div>
           
-          <div className="text-xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+          <div className="text-xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-400 bg-clip-text text-transparent">
             roydevs
           </div>
         </button>
@@ -68,7 +63,7 @@ export default function Header({ scrolled }) {
           ))}
         </div>
 
-        {/* Desktop CTA Button - Connected to WhatsApp */}
+        {/* Desktop CTA Button */}
         <button 
           onClick={handleLetsTalkClick}
           className="hidden md:block px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium relative group overflow-hidden"

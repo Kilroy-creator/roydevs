@@ -18,30 +18,13 @@ const AnimatedContent = ({ children, delay = 0 }) => {
 
 // Star Border Component for Cards
 const StarBorderCard = ({ children, className = '' }) => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const cardRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    if (cardRef.current) {
-      const rect = cardRef.current.getBoundingClientRect();
-      setMousePos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    }
-  };
-
   return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      className={`relative group ${className}`}
-    >
+    <div className={`relative group ${className}`}>
       {/* Star Corners */}
-      <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       {children}
     </div>
@@ -51,7 +34,7 @@ const StarBorderCard = ({ children, className = '' }) => {
 // Floating WhatsApp Button
 const FloatingWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const phoneNumber = '254712601406'; 
+  const phoneNumber = '254712345678'; // Replace with your actual WhatsApp number
   const message = 'Hi! I am interested in your services.';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -73,7 +56,7 @@ const FloatingWhatsApp = () => {
         <MessageCircle size={28} className="text-white" />
       </div>
 
-      {/* Tooltip - Fixed positioning */}
+      {/* Tooltip */}
       {isHovered && (
         <div className="absolute bottom-full right-0 mb-3 bg-slate-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap border border-slate-700 animate-fadeIn shadow-lg">
           Chat with us on WhatsApp
@@ -160,7 +143,7 @@ export default function Contact() {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          {/* Header with Gradient */}
+          {/* Header */}
           <AnimatedContent delay={0}>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
@@ -172,31 +155,31 @@ export default function Contact() {
             </div>
           </AnimatedContent>
 
-          {/* Contact Methods - Removed black background */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {/* Contact Methods - Transparent cards with star borders */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             {contactMethods.map((method, idx) => {
               const Icon = method.icon;
               return (
                 <AnimatedContent key={method.title} delay={0.1 * (idx + 1)}>
-                  <GlareHover className="h-full">
-                    <StarBorderCard className="bg-slate-800/30 backdrop-blur-sm p-6 rounded-xl border border-slate-700/50 hover:border-cyan-500/50 hover:bg-slate-800/50 transition-all duration-300 h-full flex flex-col">
-                      <a 
-                        href={method.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group"
-                      >
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className={`p-3 bg-gradient-to-r ${method.color} rounded-lg group-hover:scale-110 transition-transform duration-300`}>
-                            <Icon className="text-white" size={24} />
-                          </div>
-                          <h3 className="text-lg font-semibold text-white">{method.title}</h3>
+                  <StarBorderCard className="h-full">
+                    <a 
+                      href={method.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full p-6 rounded-xl border border-slate-700/50 hover:border-cyan-500/50 bg-slate-800/20 backdrop-blur-sm hover:bg-slate-800/40 transition-all duration-300 group"
+                    >
+                      <div className="flex items-start gap-4 mb-3">
+                        <div className={`p-3 bg-gradient-to-r ${method.color} rounded-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                          <Icon className="text-white" size={24} />
                         </div>
-                        <p className="text-slate-400 text-sm mb-3">{method.description}</p>
-                        <p className="text-cyan-400 hover:text-cyan-300 font-medium text-sm break-all">{method.contact}</p>
-                      </a>
-                    </StarBorderCard>
-                  </GlareHover>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-lg font-semibold text-white mb-1">{method.title}</h3>
+                          <p className="text-slate-400 text-sm mb-2">{method.description}</p>
+                        </div>
+                      </div>
+                      <p className="text-cyan-400 hover:text-cyan-300 font-medium text-sm break-words pl-16">{method.contact}</p>
+                    </a>
+                  </StarBorderCard>
                 </AnimatedContent>
               );
             })}
