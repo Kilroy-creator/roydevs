@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { Mail, Github, Linkedin, Send, CheckCircle, MessageCircle } from 'lucide-react';
-import GlareHover from '../components/GlareHover';
 
 // Animated Content Component
 const AnimatedContent = ({ children, delay = 0 }) => {
@@ -34,7 +33,7 @@ const StarBorderCard = ({ children, className = '' }) => {
 // Floating WhatsApp Button
 const FloatingWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const phoneNumber = '254712345678'; // Replace with your actual WhatsApp number
+  const phoneNumber = '254712345678'; // Your WhatsApp number
   const message = 'Hi! I am interested in your services.';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -127,7 +126,7 @@ export default function Contact() {
       icon: Linkedin,
       title: 'LinkedIn',
       description: 'Connect with me',
-      contact: 'linkedin.com/in/royhenry-kibet-566b57281',
+      contact: 'linkedin.com/in/royhenry-kibet',
       link: 'https://linkedin.com/in/royhenry-kibet-566b57281',
       color: 'from-blue-600 to-blue-400',
     },
@@ -143,7 +142,7 @@ export default function Contact() {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          {/* Header */}
+          {/* Header with Gradient */}
           <AnimatedContent delay={0}>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
@@ -155,7 +154,7 @@ export default function Contact() {
             </div>
           </AnimatedContent>
 
-          {/* Contact Methods - Transparent cards with star borders */}
+          {/* Contact Methods with StarBorder */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {contactMethods.map((method, idx) => {
               const Icon = method.icon;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// CountUp Component (you can also install from ReactBits)
+// CountUp Component
 const CountUp = ({ end, duration = 2000, suffix = '' }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(0);
@@ -50,14 +50,30 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
 
+  const handleGetInTouch = () => {
+    // Scroll to contact section
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleViewCV = () => {
+    // Replace with your actual CV URL
+    const cvUrl = 'https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing';
+    // Or use a local file:
+    // const cvUrl = '/cv.pdf';
+    window.open(cvUrl, '_blank');
+  };
+
   const skills = [
     { 
       category: 'Frontend', 
-      items: ['React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Vite'] 
+      items: ['React', 'Vue', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Vite'] 
     },
     { 
       category: 'Backend', 
-      items: ['Python', 'Flask', 'FastAPI', 'PostgreSQL', 'MongoDB', 'REST APIs'] 
+      items: ['Python', 'php','laravel', 'Flask', 'FastAPI', 'PostgreSQL', 'MongoDB', 'REST APIs'] 
     },
     { 
       category: 'Tools & DevOps', 
@@ -69,7 +85,9 @@ export default function About() {
     <section id="about" className="py-20 bg-slate-900">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 text-transparent bg-clip-text">About Me</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 text-transparent bg-clip-text">
+            About Me
+          </h2>
           <div className="h-1 w-20 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
         </div>
 
@@ -86,12 +104,18 @@ export default function About() {
               When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing knowledge with the developer community. I'm always excited about learning and staying updated with the latest industry trends.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <button className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium">
+              <button 
+                onClick={handleGetInTouch}
+                className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium"
+              >
                 Get In Touch
               </button>
-              <a href="#" className="px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium">
+              <button 
+                onClick={handleViewCV}
+                className="px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium"
+              >
                 View CV
-              </a>
+              </button>
             </div>
           </div>
 
@@ -149,7 +173,6 @@ export default function About() {
             <div className="mt-2 h-1 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto group-hover:w-full transition-all duration-300"></div>
           </div>
         </div>
-
       </div>
     </section>
   );
