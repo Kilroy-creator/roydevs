@@ -38,7 +38,7 @@ export default function Projects() {
       image: '🏥',
       tech: ['Vue.js 3', 'Laravel 11', 'PostgreSQL', 'Railway', 'Vercel', 'Firebase', 'M-Pesa API'],
       tags: ['Full Stack', 'Healthcare'],
-      link: 'https://github.com/royhenry877/ona-daktari',
+      link: 'https://github.com/Kilroy-creator/ona-daktari-frontend.git',
       demo: 'https://ona-daktari.vercel.app',
       featured: true,
       stats: {
