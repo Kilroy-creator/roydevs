@@ -64,37 +64,38 @@ export default function Projects() {
       }
     },
     {
-      id: 3,
-      title: 'Task Management SaaS',
-      description: 'A collaborative task management platform for remote teams with real-time updates, team workspaces, and comprehensive productivity analytics.',
-      image: '✅',
-      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Socket.io', 'AWS'],
-      tags: ['Full Stack', 'Backend'],
-      link: 'https://github.com/royhenry877/taskflow',
-      demo: '#',  // No live demo yet
-      featured: false,
-      stats: {
-        rating: 4.7,
-        downloads: 800,
-        stars: 92
-      }
-    },
-    {
-      id: 4,
-      title: 'AI Content Generator',
-      description: 'AI-powered content generation tool utilizing OpenAI API for automated content creation, optimization, and multi-format publishing.',
-      image: '🤖',
-      tech: ['React', 'Python', 'OpenAI API', 'FastAPI', 'PostgreSQL'],
-      tags: ['Full Stack', 'Backend'],
-      link: 'https://github.com/royhenry877/ai-content-generator',
-      demo: '#',  // No live demo yet
-      featured: false,
-      stats: {
-        rating: 4.9,
-        downloads: 4200,
-        stars: 512
-      }
-    },
+    id: 3,
+    title: 'FarmTech Kenya',
+    description: 'Agricultural technology platform designed to empower Kenyan farmers with modern farming solutions, market access, and digital tools for sustainable agriculture.',
+    image: '🌾',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+    tags: ['Frontend', 'Agriculture Tech'],
+    link: 'https://github.com/Kilroy-creator/farmTech-Kenya-HTML.git',
+    demo: 'https://farmingtech.netlify.app/login.html',
+    featured: false,
+    stats: {
+      rating: 4.6,
+      downloads: 450,
+      stars: 68
+    }
+  },
+  
+  {
+    id: 4,
+    title: 'School Institute Management System',
+    description: 'Comprehensive school management platform with student records, attendance tracking, grade management, and administrative tools for educational institutions.',
+    image: '🎓',
+    tech: ['React', 'Node.js', 'Flask', 'Python', 'Express', 'MongoDB', 'PostgreSQL'],
+    tags: ['Full Stack', 'Backend', 'Education'],
+    link: 'https://github.com/PKMDroid/School-Institute-Management-System.git',
+    demo: 'https://final-project-phase-4-094b.onrender.com/login',
+    featured: false,
+    stats: {
+      rating: 4.8,
+      downloads: 1200,
+      stars: 156
+    }
+  },
     {
       id: 5,
       title: 'Social Media Analytics Dashboard',
