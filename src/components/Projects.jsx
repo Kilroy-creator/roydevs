@@ -45,48 +45,6 @@ export default function Projects() {
         rating: 4.9,
         downloads: 5000,
         stars: 342
-      },
-      longDescription: `
-        Ona Daktari is a production-ready telemedicine solution that bridges the gap between patients and healthcare professionals in East Africa. 
-        
-        Built with modern web technologies, it demonstrates full-stack development expertise in healthcare technology. The platform serves thousands of patients and doctors with a focus on accessibility and reliability.
-        
-        Key achievements:
-        - Reduced patient wait times by 60% through efficient scheduling
-        - Enabled 500+ healthcare professionals to serve 5,000+ patients
-        - Integrated M-Pesa payment system for seamless African transactions
-        - Achieved 99.9% uptime in production with healthcare-grade reliability
-        - Maintained HIPAA-compliant security for sensitive patient data
-        - Scaled to handle 10,000+ concurrent users during peak hours
-      `,
-      features: [
-        'Patient Registration & Authentication',
-        'Doctor Profile Management',
-        'Real-time Appointment Booking',
-        'Video Consultation Integration',
-        'Electronic Medical Records (EMR)',
-        'Prescription Management System',
-        'M-Pesa Payment Integration',
-        'Real-time Notifications',
-        'Secure Chat System',
-        'Admin Panel'
-      ],
-      stats: {
-        rating: 4.9,
-        downloads: 5000,
-        stars: 342,
-        developmentTime: '6 months',
-        teamSize: '1 full-stack developer',
-        performanceScore: 98,
-        apiEndpoints: '25+',
-        databaseTables: '18'
-      },
-      results: {
-        roi: '250%',
-        userSatisfaction: '4.9/5',
-        appointmentCompletion: '92%',
-        doctorRetention: '95%',
-        activeUsers: '5,000+'
       }
     },
     {
@@ -103,29 +61,6 @@ export default function Projects() {
         rating: 4.8,
         downloads: 1200,
         stars: 156
-      },
-      longDescription: `
-        A personal portfolio and blogging platform designed to showcase development expertise and technical knowledge.
-        
-        Features dynamic project showcase with filtering, integrated blog with markdown support, dark/light theme toggle, and comprehensive SEO optimization for maximum search engine visibility.
-      `,
-      features: [
-        'Dynamic Project Portfolio',
-        'Blog Publishing System',
-        'Markdown Support',
-        'Search Functionality',
-        'Category & Tag Filtering',
-        'Dark/Light Theme',
-        'Newsletter Integration',
-        'Analytics Dashboard',
-        'SEO Optimized',
-        'Responsive Design'
-      ],
-      results: {
-        roi: '150%',
-        userSatisfaction: '4.8/5',
-        pageLoadTime: '0.8s',
-        monthlyVisitors: '2,000+'
       }
     },
     {
@@ -136,34 +71,12 @@ export default function Projects() {
       tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Socket.io', 'AWS'],
       tags: ['Full Stack', 'Backend'],
       link: 'https://github.com/royhenry877/taskflow',
-      demo: 'https://taskflow.example.com',
+      demo: '#',  // No live demo yet
       featured: false,
       stats: {
         rating: 4.7,
         downloads: 800,
         stars: 92
-      },
-      longDescription: `
-        A comprehensive task management solution built for remote teams to improve productivity and collaboration.
-        
-        Handles complex team dynamics with features like task assignments, project organization, real-time updates powered by WebSockets, and detailed performance analytics.
-      `,
-      features: [
-        'Team Workspaces',
-        'Task Assignment & Tracking',
-        'Real-time Collaboration',
-        'Project Management',
-        'Time Tracking',
-        'Productivity Analytics',
-        'Team Dashboard',
-        'Notifications System',
-        'File Attachments',
-        'Comments & Discussion'
-      ],
-      results: {
-        roi: '200%',
-        userSatisfaction: '4.7/5',
-        activeTeams: '150+'
       }
     },
     {
@@ -174,34 +87,12 @@ export default function Projects() {
       tech: ['React', 'Python', 'OpenAI API', 'FastAPI', 'PostgreSQL'],
       tags: ['Full Stack', 'Backend'],
       link: 'https://github.com/royhenry877/ai-content-generator',
-      demo: 'https://ai-content.example.com',
+      demo: '#',  // No live demo yet
       featured: false,
       stats: {
         rating: 4.9,
         downloads: 4200,
         stars: 512
-      },
-      longDescription: `
-        AI-powered content generation tool leveraging cutting-edge OpenAI models for automated content creation, optimization, and intelligent publishing.
-        
-        Enables content creators to generate high-quality, SEO-optimized content in multiple formats including blog posts, social media content, and marketing copy.
-      `,
-      features: [
-        'AI Content Generation',
-        'Multiple Content Formats',
-        'SEO Optimization',
-        'Content Templates',
-        'Plagiarism Detection',
-        'Tone Customization',
-        'Batch Processing',
-        'Analytics Integration',
-        'API Access',
-        'Export Multiple Formats'
-      ],
-      results: {
-        contentGenerated: '10,000+',
-        userSatisfaction: '4.9/5',
-        timesSaved: '100+ hours/month'
       }
     },
     {
@@ -212,34 +103,12 @@ export default function Projects() {
       tech: ['React', 'Node.js', 'MongoDB', 'Chart.js', 'Social Media APIs'],
       tags: ['Full Stack', 'Frontend'],
       link: 'https://github.com/royhenry877/social-analytics',
-      demo: 'https://social-analytics.example.com',
+      demo: '#',  // No live demo yet
       featured: false,
       stats: {
         rating: 4.6,
         downloads: 1200,
         stars: 98
-      },
-      longDescription: `
-        Comprehensive analytics platform for tracking and analyzing social media performance across Instagram, Facebook, Twitter, and TikTok.
-        
-        Provides detailed insights with beautiful data visualizations, engagement metrics, follower growth analysis, and actionable recommendations.
-      `,
-      features: [
-        'Multi-Platform Integration',
-        'Real-time Analytics',
-        'Engagement Metrics',
-        'Follower Growth Tracking',
-        'Content Performance Analysis',
-        'Competitor Benchmarking',
-        'Scheduled Reports',
-        'Data Visualization',
-        'Trend Analysis',
-        'Custom Dashboards'
-      ],
-      results: {
-        platformsConnected: '1,000+',
-        userSatisfaction: '4.6/5',
-        dataProcessed: '1M+ posts/month'
       }
     },
     {
@@ -250,34 +119,12 @@ export default function Projects() {
       tech: ['React', 'OpenWeather API', 'Tailwind CSS', 'Mapbox', 'Redux'],
       tags: ['Frontend', 'React'],
       link: 'https://github.com/royhenry877/weather-app',
-      demo: 'https://weather-forecast.example.com',
+      demo: '#',  // No live demo yet
       featured: false,
       stats: {
         rating: 4.5,
         downloads: 890,
         stars: 67
-      },
-      longDescription: `
-        A beautifully designed weather application providing real-time weather forecasts, location-based data, and interactive weather maps.
-        
-        Features severe weather alerts, 14-day forecasts, historical weather data, and beautiful animations for weather conditions.
-      `,
-      features: [
-        'Real-time Weather Data',
-        'Location-based Forecasts',
-        'Interactive Weather Maps',
-        'Severe Weather Alerts',
-        '14-day Forecast',
-        'Historical Weather Data',
-        'UV Index',
-        'Air Quality Index',
-        'Multiple Locations',
-        'Beautiful Animations'
-      ],
-      results: {
-        locationsTracked: '1,000+',
-        userSatisfaction: '4.5/5',
-        accuracyRate: '98%'
       }
     }
   ];
@@ -412,14 +259,18 @@ export default function Projects() {
                           >
                             <Github size={18} /> View Code
                           </a>
-                          <a
-                            href={project.demo || '#'}
-                            target={project.demo ? '_blank' : undefined}
-                            rel={project.demo ? 'noopener noreferrer' : undefined}
-                            className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium group-hover:scale-105"
-                          >
-                            <ExternalLink size={18} /> Live Demo
-                          </a>
+                          
+                          {/* Only show demo if it's not # */}
+                          {project.demo && project.demo !== '#' && (
+                            <a
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium group-hover:scale-105"
+                            >
+                              <ExternalLink size={18} /> Live Demo
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -507,14 +358,18 @@ export default function Projects() {
                       >
                         <Github size={18} /> Code
                       </a>
-                      <a
-                        href={project.demo || '#'}
-                        target={project.demo ? '_blank' : undefined}
-                        rel={project.demo ? 'noopener noreferrer' : undefined}
-                        className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg"
-                      >
-                        <ExternalLink size={18} /> Demo
-                      </a>
+                      
+                      {/* Only show demo if it's not # */}
+                      {project.demo && project.demo !== '#' && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg"
+                        >
+                          <ExternalLink size={18} /> Demo
+                        </a>
+                      )}
                     </div>
                   </div>
                 </GlareHover>
