@@ -64,38 +64,37 @@ export default function Projects() {
       }
     },
     {
-    id: 3,
-    title: 'FarmTech Kenya',
-    description: 'Agricultural technology platform designed to empower Kenyan farmers with modern farming solutions, market access, and digital tools for sustainable agriculture.',
-    image: '🌾',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
-    tags: ['Frontend', 'Agriculture Tech'],
-    link: 'https://github.com/Kilroy-creator/farmTech-Kenya-HTML.git',
-    demo: 'https://farmingtech.netlify.app/login.html',
-    featured: false,
-    stats: {
-      rating: 4.6,
-      downloads: 450,
-      stars: 68
-    }
-  },
-  
-  {
-    id: 4,
-    title: 'School Institute Management System',
-    description: 'Comprehensive school management platform with student records, attendance tracking, grade management, and administrative tools for educational institutions.',
-    image: '🎓',
-    tech: ['React', 'Node.js', 'Flask', 'Python', 'Express', 'MongoDB', 'PostgreSQL'],
-    tags: ['Full Stack', 'Backend', 'Education'],
-    link: 'https://github.com/PKMDroid/School-Institute-Management-System.git',
-    demo: 'https://final-project-phase-4-094b.onrender.com/',
-    featured: false,
-    stats: {
-      rating: 4.8,
-      downloads: 1200,
-      stars: 156
-    }
-  },
+      id: 3,
+      title: 'FarmTech Kenya',
+      description: 'Agricultural technology platform designed to empower Kenyan farmers with modern farming solutions, market access, and digital tools for sustainable agriculture.',
+      image: '🌾',
+      tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+      tags: ['Frontend', 'Agriculture Tech'],
+      link: 'https://github.com/Kilroy-creator/farmTech-Kenya-HTML.git',
+      demo: 'https://farmingtech.netlify.app/login.html',
+      featured: false,
+      stats: {
+        rating: 4.6,
+        downloads: 450,
+        stars: 68
+      }
+    },
+    {
+      id: 4,
+      title: 'School Institute Management System',
+      description: 'Comprehensive school management platform with student records, attendance tracking, grade management, and administrative tools for educational institutions.',
+      image: '🎓',
+      tech: ['React', 'Node.js', 'Flask', 'Python', 'Express', 'MongoDB', 'PostgreSQL'],
+      tags: ['Full Stack', 'Backend', 'Education'],
+      link: 'https://github.com/PKMDroid/School-Institute-Management-System.git',
+      demo: 'https://final-project-phase-4-094b.onrender.com/',
+      featured: false,
+      stats: {
+        rating: 4.8,
+        downloads: 1200,
+        stars: 156
+      }
+    },
     {
       id: 5,
       title: 'Social Media Analytics Dashboard',
@@ -104,7 +103,7 @@ export default function Projects() {
       tech: ['React', 'Node.js', 'MongoDB', 'Chart.js', 'Social Media APIs'],
       tags: ['Full Stack', 'Frontend'],
       link: 'https://github.com/royhenry877/social-analytics',
-      demo: '#',  // No live demo yet
+      demo: '#',
       featured: false,
       stats: {
         rating: 4.6,
@@ -120,7 +119,7 @@ export default function Projects() {
       tech: ['React', 'OpenWeather API', 'Tailwind CSS', 'Mapbox', 'Redux'],
       tags: ['Frontend', 'React'],
       link: 'https://github.com/royhenry877/weather-app',
-      demo: '#',  // No live demo yet
+      demo: '#',
       featured: false,
       stats: {
         rating: 4.5,
@@ -131,41 +130,41 @@ export default function Projects() {
   ];
 
   const tags = ['All', 'Full Stack', 'Frontend', 'Backend', 'Healthcare', 'React'];
-  
+
   // Safe filtering
-  const filtered = filter === 'All' 
-    ? projects 
+  const filtered = filter === 'All'
+    ? projects
     : projects.filter(p => {
-        const projectTags = p.tags || [];
-        return projectTags.includes(filter);
-      });
+      const projectTags = p.tags || [];
+      return projectTags.includes(filter);
+    });
 
   const featured = filtered.filter(p => p.featured === true);
   const regular = filtered.filter(p => p.featured !== true);
 
   return (
     <section id="work" className="py-20 bg-gradient-to-br from-slate-900 to-slate-950 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 
-            bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4
+            bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500
             text-transparent bg-clip-text">
             Selected Work
           </h2>
 
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto px-2">
             Projects I've built and shipped to production. Each one represents quality code and attention to detail.
           </p>
         </div>
 
-        {/* Filter Tags */}
-        <div className="flex gap-3 justify-center mb-12 flex-wrap">
+        {/* Filter Tags - Responsive */}
+        <div className="flex gap-2 sm:gap-3 justify-center mb-12 flex-wrap">
           {tags.map(tag => (
             <button
               key={tag}
               onClick={() => setFilter(tag)}
-              className={`px-5 py-2 rounded-full font-medium transition-all duration-200 ${
+              className={`px-3 sm:px-5 py-2 rounded-full font-medium transition-all duration-200 text-sm sm:text-base whitespace-nowrap ${
                 filter === tag
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
@@ -179,13 +178,13 @@ export default function Projects() {
         {/* Featured Projects */}
         {featured && featured.length > 0 && (
           <>
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
               <Star size={24} className="text-cyan-400" />
               Featured
             </h3>
             <div className="grid grid-cols-1 gap-6 mb-12">
               {featured.map(project => (
-                <GlareHover 
+                <GlareHover
                   key={project.id}
                   className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-500/50 transition-all duration-300"
                   onMouseEnter={() => setHoveredId(project.id)}
@@ -194,28 +193,28 @@ export default function Projects() {
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 transition-all duration-300"></div>
 
-                  <div className="relative p-7 md:p-9">
-                    <div className="flex flex-col md:flex-row gap-6 items-start">
-                      <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{project.image}</div>
-                      
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                          <div className="flex items-center gap-1 bg-slate-700/50 px-2.5 py-1 text-sm rounded-full group-hover:bg-cyan-500/20 transition-all">
+                  <div className="relative p-4 sm:p-6 md:p-9">
+                    <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-start">
+                      <div className="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">{project.image}</div>
+
+                      <div className="flex-1 w-full min-w-0">
+                        <div className="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-3 mb-2">
+                          <h3 className="text-lg sm:text-2xl font-bold text-white break-words">{project.title}</h3>
+                          <div className="flex items-center gap-1 bg-slate-700/50 px-2.5 py-1 text-sm rounded-full group-hover:bg-cyan-500/20 transition-all flex-shrink-0">
                             <Star size={16} className="text-yellow-400" fill="currentColor" />
                             <span className="text-sm text-yellow-400">{project.stats?.rating || 4.5}</span>
                           </div>
                         </div>
-                        
-                        <p className="text-slate-300 mb-4 text-lg">{project.description}</p>
+
+                        <p className="text-slate-300 mb-4 text-sm sm:text-base">{project.description}</p>
 
                         {/* Tech Stack */}
                         {project.tech && project.tech.length > 0 && (
                           <div className="flex flex-wrap gap-2 mb-6">
                             {project.tech.map(tech => (
-                              <span 
-                                key={tech} 
-                                className="px-2.5 py-1 bg-slate-700/50 text-cyan-300 text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
+                              <span
+                                key={tech}
+                                className="px-2.5 py-1 bg-slate-700/50 text-cyan-300 text-xs sm:text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
                               >
                                 {tech}
                               </span>
@@ -224,10 +223,10 @@ export default function Projects() {
                         )}
 
                         {/* Stats with CountUp */}
-                        <div className="flex gap-6 mb-6">
+                        <div className="flex gap-4 sm:gap-6 mb-6 flex-wrap">
                           <div>
-                            <p className="text-slate-400 text-sm mb-1">Downloads</p>
-                            <p className="text-cyan-400 font-bold text-lg">
+                            <p className="text-slate-400 text-xs sm:text-sm mb-1">Downloads</p>
+                            <p className="text-cyan-400 font-bold text-base sm:text-lg">
                               {hoveredId === project.id ? (
                                 <>
                                   <CountUpStat end={project.stats?.downloads || 0} duration={800} />
@@ -239,8 +238,8 @@ export default function Projects() {
                             </p>
                           </div>
                           <div>
-                            <p className="text-slate-400 text-sm mb-1">Stars</p>
-                            <p className="text-cyan-400 font-bold text-lg">
+                            <p className="text-slate-400 text-xs sm:text-sm mb-1">Stars</p>
+                            <p className="text-cyan-400 font-bold text-base sm:text-lg">
                               {hoveredId === project.id ? (
                                 <CountUpStat end={project.stats?.stars || 0} duration={800} />
                               ) : (
@@ -251,23 +250,23 @@ export default function Projects() {
                         </div>
 
                         {/* Links */}
-                        <div className="flex gap-4 flex-wrap">
+                        <div className="flex gap-3 flex-wrap">
                           <a
                             href={project.link || '#'}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-6 py-2 bg-slate-700 text-slate-300 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-200 font-medium"
+                            className="flex items-center gap-2 px-4 sm:px-6 py-2 bg-slate-700 text-slate-300 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-200 font-medium text-sm sm:text-base"
                           >
                             <Github size={18} /> View Code
                           </a>
-                          
+
                           {/* Only show demo if it's not # */}
                           {project.demo && project.demo !== '#' && (
                             <a
                               href={project.demo}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium group-hover:scale-105"
+                              className="flex items-center gap-2 px-4 sm:px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium text-sm sm:text-base group-hover:scale-105"
                             >
                               <ExternalLink size={18} /> Live Demo
                             </a>
@@ -286,9 +285,9 @@ export default function Projects() {
         {regular && regular.length > 0 && (
           <>
             {featured && featured.length > 0 && (
-              <h3 className="text-2xl font-bold text-white mb-6">Other Projects</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Other Projects</h3>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {regular.map(project => (
                 <GlareHover
                   key={project.id}
@@ -299,24 +298,24 @@ export default function Projects() {
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 transition-all duration-300"></div>
 
-                  <div className="relative p-6 flex flex-col h-full">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="text-5xl group-hover:scale-110 transition-transform duration-300">{project.image}</div>
-                      <div className="flex items-center gap-1 bg-slate-700/50 px-2 py-1 rounded-lg group-hover:bg-cyan-500/20 transition-all">
+                  <div className="relative p-4 sm:p-6 flex flex-col h-full">
+                    <div className="flex justify-between items-start mb-4 gap-3">
+                      <div className="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">{project.image}</div>
+                      <div className="flex items-center gap-1 bg-slate-700/50 px-2 py-1 rounded-lg group-hover:bg-cyan-500/20 transition-all flex-shrink-0">
                         <Star size={14} className="text-yellow-400" fill="currentColor" />
                         <span className="text-xs text-yellow-400 font-medium">{project.stats?.rating || 4.5}</span>
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-slate-400 mb-4 text-sm flex-grow">{project.description}</p>
+                    <h3 className="text-base sm:text-xl font-bold text-white mb-2 break-words">{project.title}</h3>
+                    <p className="text-slate-400 mb-4 text-xs sm:text-sm flex-grow">{project.description}</p>
 
                     {/* Tech Stack */}
                     {project.tech && project.tech.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-4">
                         {project.tech.map(tech => (
-                          <span 
-                            key={tech} 
+                          <span
+                            key={tech}
                             className="px-2 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
                           >
                             {tech}
@@ -326,7 +325,7 @@ export default function Projects() {
                     )}
 
                     {/* Stats with CountUp */}
-                    <div className="flex gap-4 text-sm mb-6">
+                    <div className="flex gap-4 text-xs sm:text-sm mb-6 flex-wrap">
                       <div className="text-slate-400">
                         <span className="text-cyan-400 font-bold">
                           {hoveredId === project.id ? (
@@ -350,25 +349,25 @@ export default function Projects() {
                     </div>
 
                     {/* Links */}
-                    <div className="flex gap-3 pt-4 border-t border-slate-700">
+                    <div className="flex gap-2 pt-4 border-t border-slate-700">
                       <a
                         href={project.link || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg"
+                        className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg text-sm"
                       >
-                        <Github size={18} /> Code
+                        <Github size={16} /> Code
                       </a>
-                      
+
                       {/* Only show demo if it's not # */}
                       {project.demo && project.demo !== '#' && (
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg"
+                          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg text-sm"
                         >
-                          <ExternalLink size={18} /> Demo
+                          <ExternalLink size={16} /> Demo
                         </a>
                       )}
                     </div>
@@ -382,20 +381,20 @@ export default function Projects() {
         {/* Empty State */}
         {filtered && filtered.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-slate-400 text-lg">No projects found in this category.</p>
+            <p className="text-slate-400 text-base sm:text-lg">No projects found in this category.</p>
           </div>
         )}
 
         {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <p className="text-slate-400 mb-6">
+        <div className="mt-12 sm:mt-16 text-center">
+          <p className="text-slate-400 mb-6 text-sm sm:text-base px-2">
             Want to see more? Check out my GitHub for additional projects and contributions.
           </p>
           <a
             href="https://github.com/royhenry877"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium group hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium group hover:scale-105 text-sm sm:text-base"
           >
             <Github size={20} />
             Visit My GitHub
