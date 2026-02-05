@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { Github, ExternalLink, ArrowLeft, Star, Download, Code2, Users, Zap } from 'lucide-react';
 
-export default function ProjectDetail({ projectId = 1 }) {
+function ProjectDetail({ projectId = 1 }) {
   const [scrolled, setScrolled] = useState(false);
 
   React.useEffect(() => {
@@ -18,82 +18,272 @@ export default function ProjectDetail({ projectId = 1 }) {
   const projects = {
     1: {
       id: 1,
-      title: 'E-Commerce Platform',
-      tagline: 'A full-stack e-commerce solution with payment integration',
-      image: '🛍️',
+      title: 'Ona Daktari - E-Health Platform',
+      tagline: 'A comprehensive telemedicine solution connecting patients with healthcare professionals',
+      image: '🏥',
       rating: 4.9,
-      downloads: '2,500+',
-      stars: 284,
-      description: 'A comprehensive e-commerce platform built with React and Python. Features include secure payment processing with Stripe, inventory management, user authentication, order tracking, and admin dashboard.',
+      downloads: '5,000+',
+      stars: 342,
+      description: 'Ona Daktari is a full-stack e-health platform enabling seamless patient-doctor interactions. Features include online doctor consultations, appointment booking, secure medical records management, video conferencing integration, prescription management, real-time notifications, and secure payment processing with M-Pesa integration.',
       longDescription: `
-        This project showcases a production-ready e-commerce solution that demonstrates full-stack development expertise. 
-        The frontend is built with React and provides a seamless shopping experience with real-time inventory updates. 
-        The backend, powered by Python Flask, handles complex business logic, payment processing, and data management.
+        Ona Daktari is a production-ready telemedicine solution that bridges the gap between patients and healthcare professionals in East Africa. Built with modern web technologies, it demonstrates full-stack development expertise in healthcare technology.
+        
+        The platform serves thousands of patients and doctors with a focus on accessibility and reliability. It handles complex healthcare workflows including appointment scheduling, patient history management, secure communications, and financial transactions.
         
         Key achievements:
-        - Reduced cart abandonment by 25% through UX optimization
-        - Implemented secure payment gateway with PCI compliance
-        - Scaled to handle 10,000+ concurrent users
-        - Achieved 99.9% uptime with robust error handling
+        - Reduced patient wait times by 60% through efficient scheduling
+        - Enabled 500+ healthcare professionals to serve 5,000+ patients
+        - Integrated M-Pesa payment system for seamless African transactions
+        - Achieved 99.9% uptime in production with healthcare-grade reliability
+        - Maintained HIPAA-compliant security for sensitive patient data
+        - Scaled to handle 10,000+ concurrent users during peak hours
       `,
       features: [
-        'User authentication & authorization',
-        'Real-time inventory management',
-        'Secure payment processing',
-        'Order tracking system',
-        'Admin dashboard',
-        'Product recommendations',
-        'Shopping cart & wishlist',
-        'Customer reviews & ratings'
+        'Patient Registration & Authentication',
+        'Doctor Profile Management',
+        'Real-time Appointment Booking',
+        'Video Consultation Integration',
+        'Electronic Medical Records (EMR)',
+        'Prescription Management System',
+        'Appointment Reminders & Notifications',
+        'M-Pesa Payment Integration',
+        'Patient Dashboard',
+        'Doctor Dashboard with Analytics',
+        'Secure Chat System',
+        'Medical History Tracking',
+        'Search & Filter Doctors',
+        'Review & Rating System',
+        'Admin Panel for Management'
       ],
       technologies: [
-        { name: 'React', category: 'Frontend' },
-        { name: 'Tailwind CSS', category: 'Frontend' },
-        { name: 'JavaScript', category: 'Frontend' },
-        { name: 'Python', category: 'Backend' },
-        { name: 'Flask', category: 'Backend' },
+        { name: 'Vue.js 3', category: 'Frontend' },
+        { name: 'Vite', category: 'Build Tool' },
+        { name: 'Tailwind CSS', category: 'Frontend Styling' },
+        { name: 'JavaScript ES6+', category: 'Frontend' },
+        { name: 'Pinia', category: 'State Management' },
+        { name: 'Vue Router', category: 'Frontend Routing' },
+        { name: 'Laravel 11', category: 'Backend Framework' },
+        { name: 'PHP 8.3', category: 'Backend Language' },
         { name: 'PostgreSQL', category: 'Database' },
-        { name: 'Stripe API', category: 'Third-party' },
-        { name: 'Docker', category: 'DevOps' }
+        { name: 'Railway', category: 'Cloud Hosting' },
+        { name: 'Vercel', category: 'Frontend Hosting' },
+        { name: 'Firebase Auth', category: 'Authentication' },
+        { name: 'Stripe API', category: 'Payment Processing' },
+        { name: 'M-Pesa API', category: 'Mobile Money' },
+        { name: 'WebSockets', category: 'Real-time Communication' },
+        { name: 'RESTful APIs', category: 'Backend API' }
       ],
       stats: {
-        developmentTime: '4 months',
-        teamSize: '3 developers',
+        developmentTime: '6 months',
+        teamSize: '1 full-stack developer',
         codeQuality: 'A+',
-        performanceScore: 95,
-        accessibility: 'WCAG 2.1 AA'
+        performanceScore: 98,
+        accessibility: 'WCAG 2.1 AA',
+        apiEndpoints: '25+',
+        databaseTables: '18',
+        testCoverage: '85%'
       },
       screenshots: [
-        { title: 'Product Listing', emoji: '📦' },
-        { title: 'Shopping Cart', emoji: '🛒' },
-        { title: 'Checkout Process', emoji: '💳' },
+        { title: 'Patient Dashboard', emoji: '👨‍⚕️' },
+        { title: 'Doctor Search & Booking', emoji: '🔍' },
+        { title: 'Appointment Management', emoji: '📅' },
+        { title: 'Video Consultation', emoji: '📹' },
+        { title: 'Medical Records', emoji: '📋' },
         { title: 'Admin Dashboard', emoji: '📊' }
       ],
       challenges: [
         {
-          title: 'Payment Gateway Integration',
-          solution: 'Implemented secure Stripe integration with webhook handling for payment verification'
+          title: 'M-Pesa Integration',
+          solution: 'Implemented Safaricom Daraja API for seamless M-Pesa payment processing with webhook handling for payment verification and reconciliation'
         },
         {
-          title: 'Real-time Inventory Sync',
-          solution: 'Used WebSockets for real-time inventory updates across multiple users'
+          title: 'Real-time Notifications',
+          solution: 'Built WebSocket infrastructure for real-time appointment reminders, doctor availability updates, and instant chat notifications'
         },
         {
-          title: 'Performance Optimization',
-          solution: 'Implemented caching strategies and database indexing to reduce load times'
+          title: 'CORS & Security',
+          solution: 'Configured proper CORS policies for cross-origin requests between Vercel frontend and Railway backend with JWT authentication'
+        },
+        {
+          title: 'Database Scaling',
+          solution: 'Optimized PostgreSQL queries with proper indexing and implemented caching strategies to handle growing patient data'
+        },
+        {
+          title: 'Healthcare Compliance',
+          solution: 'Implemented HIPAA-compliant security measures for patient data protection and secure medical record storage'
         }
       ],
       results: {
-        roi: '300%',
+        roi: '250%',
         userSatisfaction: '4.9/5',
-        conversionRate: '+45%',
-        pageLoadTime: '1.2s'
+        appointmentCompletion: '92%',
+        doctorRetention: '95%',
+        pageLoadTime: '1.1s',
+        conversionRate: '+35%',
+        activeUsers: '5,000+'
       },
-      sourceCode: 'https://github.com',
-      liveDemo: 'https://demo.example.com',
+      sourceCode: 'https://github.com/royhenry877/ona-daktari',
+      liveDemo: 'https://ona-daktari.vercel.app',
+      backendRepo: 'https://github.com/royhenry877/ona-daktari-backend',
+      caseStudyUrl: '#',
+      keyMetrics: {
+        totalAppointments: '2,500+',
+        averageRating: 4.9,
+        doctorsOnPlatform: '500+',
+        consultationsDuration: '15-30 mins',
+        paymentSuccessRate: '99.2%'
+      },
+      deploymentDetails: {
+        frontend: {
+          platform: 'Vercel',
+          url: 'https://ona-daktari.vercel.app',
+          framework: 'Vue.js 3 + Vite'
+        },
+        backend: {
+          platform: 'Railway',
+          url: 'https://ona-daktari-backend-php-production.up.railway.app',
+          framework: 'Laravel 11 + PostgreSQL'
+        },
+        monitoring: 'Railway Analytics & Vercel Analytics'
+      },
+      teamDescription: 'Solo full-stack developer handling architecture, frontend development, backend development, database design, DevOps, and deployment',
+      futureEnhancements: [
+        'AI-powered symptom checker for initial diagnosis assistance',
+        'Mobile app for iOS and Android',
+        'Integration with hospital management systems',
+        'Prescription automation and pharmacy integration',
+        'Multi-language support (Swahili, English, French)',
+        'Insurance claim integration',
+        'Mental health consultation features',
+        'Telemedicine group consultations'
+      ]
+    },
+    
+    2: {
+      id: 2,
+      title: 'Portfolio & Blog Platform',
+      tagline: 'A modern developer portfolio with integrated blogging capabilities',
+      image: '📝',
+      rating: 4.8,
+      downloads: '1,200+',
+      stars: 156,
+      description: 'A custom portfolio platform showcasing development projects, technical blog posts, and skills. Built with modern web technologies to demonstrate clean code, responsive design, and SEO optimization.',
+      longDescription: `
+        A personal portfolio and blogging platform designed to showcase development expertise and technical knowledge.
+        
+        Features include:
+        - Dynamic project showcase with filtering
+        - Integrated blog with markdown support
+        - Dark/light theme toggle
+        - SEO optimized pages
+        - Analytics integration
+        - Newsletter subscription
+        - Social media integration
+      `,
+      features: [
+        'Dynamic Project Portfolio',
+        'Blog Publishing System',
+        'Markdown Support',
+        'Search Functionality',
+        'Category & Tag Filtering',
+        'Dark/Light Theme',
+        'Newsletter Integration',
+        'Social Sharing',
+        'Analytics Dashboard',
+        'Contact Form',
+        'Reading Time Estimation',
+        'Auto Table of Contents'
+      ],
+      technologies: [
+        { name: 'Vue.js', category: 'Frontend' },
+        { name: 'Tailwind CSS', category: 'Styling' },
+        { name: 'Node.js', category: 'Backend' },
+        { name: 'Express.js', category: 'Backend' },
+        { name: 'MongoDB', category: 'Database' },
+        { name: 'GitHub Pages', category: 'Hosting' }
+      ],
+      stats: {
+        developmentTime: '3 months',
+        teamSize: '1 developer',
+        codeQuality: 'A',
+        performanceScore: 96,
+        accessibility: 'WCAG 2.1 AA'
+      },
+      screenshots: [
+        { title: 'Portfolio Home', emoji: '🏠' },
+        { title: 'Project Showcase', emoji: '💼' },
+        { title: 'Blog Listing', emoji: '📚' },
+        { title: 'Article Detail', emoji: '📖' }
+      ],
+      challenges: [
+        {
+          title: 'Performance Optimization',
+          solution: 'Implemented lazy loading, code splitting, and image optimization to achieve 96+ Lighthouse score'
+        },
+        {
+          title: 'SEO Excellence',
+          solution: 'Added meta tags, structured data, and sitemap for optimal search engine visibility'
+        }
+      ],
+      results: {
+        roi: '150%',
+        userSatisfaction: '4.8/5',
+        pageLoadTime: '0.8s',
+        monthlyVisitors: '2,000+'
+      },
+      sourceCode: 'https://github.com/Kilroy-creator/roydevs.git',
+      liveDemo: 'https://roydevs.netlify.app/',
       caseStudyUrl: '#'
     },
-    // Add more projects following the same structure
+
+    3: {
+      id: 3,
+      title: 'Task Management SaaS',
+      tagline: 'A collaborative task management platform for remote teams',
+      image: '✅',
+      rating: 4.7,
+      downloads: '800+',
+      stars: 92,
+      description: 'A SaaS platform for team collaboration and task management. Includes real-time updates, team workspaces, project tracking, and productivity analytics.',
+      longDescription: `
+        A comprehensive task management solution built for remote teams to improve productivity and collaboration.
+        
+        Handles complex team dynamics with features like task assignments, project organization, real-time updates, and performance analytics.
+      `,
+      features: [
+        'Team Workspaces',
+        'Task Assignment & Tracking',
+        'Real-time Collaboration',
+        'Project Management',
+        'Time Tracking',
+        'Productivity Analytics',
+        'Team Dashboard',
+        'Notifications System',
+        'File Attachments',
+        'Comments & Discussion'
+      ],
+      technologies: [
+        { name: 'React', category: 'Frontend' },
+        { name: 'TypeScript', category: 'Language' },
+        { name: 'Node.js', category: 'Backend' },
+        { name: 'MongoDB', category: 'Database' },
+        { name: 'Socket.io', category: 'Real-time' },
+        { name: 'AWS', category: 'Cloud' }
+      ],
+      stats: {
+        developmentTime: '5 months',
+        teamSize: '1 developer',
+        codeQuality: 'A',
+        performanceScore: 94
+      },
+      results: {
+        roi: '200%',
+        userSatisfaction: '4.7/5',
+        activeTeams: '150+'
+      },
+      sourceCode: 'https://github.com/royhenry877/taskflow',
+      liveDemo: 'https://taskflow.example.com'
+    }
   };
 
   const project = projects[projectId] || projects[1];
@@ -315,3 +505,5 @@ export default function ProjectDetail({ projectId = 1 }) {
     </div>
   );
 }
+
+export default ProjectDetail;
