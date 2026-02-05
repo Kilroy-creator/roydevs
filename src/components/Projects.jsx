@@ -88,7 +88,7 @@ export default function Projects() {
     tech: ['React', 'Node.js', 'Flask', 'Python', 'Express', 'MongoDB', 'PostgreSQL'],
     tags: ['Full Stack', 'Backend', 'Education'],
     link: 'https://github.com/PKMDroid/School-Institute-Management-System.git',
-    demo: 'https://final-project-phase-4-094b.onrender.com/login',
+    demo: 'https://final-project-phase-4-094b.onrender.com/',
     featured: false,
     stats: {
       rating: 4.8,
