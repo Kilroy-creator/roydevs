@@ -143,8 +143,8 @@ export default function Projects() {
   const regular = filtered.filter(p => p.featured !== true);
 
   return (
-    <section id="work" className="py-20 bg-gradient-to-br from-slate-900 to-slate-950 relative overflow-hidden">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="work" className="py-20 bg-gradient-to-br from-slate-900 to-slate-950 relative overflow-x-hidden w-screen">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4
@@ -159,12 +159,12 @@ export default function Projects() {
         </div>
 
         {/* Filter Tags - Responsive */}
-        <div className="flex gap-2 sm:gap-3 justify-center mb-12 flex-wrap">
+        <div className="flex gap-2 sm:gap-3 justify-center mb-12 flex-wrap px-2">
           {tags.map(tag => (
             <button
               key={tag}
               onClick={() => setFilter(tag)}
-              className={`px-3 sm:px-5 py-2 rounded-full font-medium transition-all duration-200 text-sm sm:text-base whitespace-nowrap ${
+              className={`px-3 sm:px-5 py-2 rounded-full font-medium transition-all duration-200 text-xs sm:text-sm whitespace-nowrap ${
                 filter === tag
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
@@ -178,11 +178,11 @@ export default function Projects() {
         {/* Featured Projects */}
         {featured && featured.length > 0 && (
           <>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2 px-2">
               <Star size={24} className="text-cyan-400" />
               Featured
             </h3>
-            <div className="grid grid-cols-1 gap-6 mb-12">
+            <div className="grid grid-cols-1 gap-6 mb-12 px-2">
               {featured.map(project => (
                 <GlareHover
                   key={project.id}
@@ -206,7 +206,7 @@ export default function Projects() {
                           </div>
                         </div>
 
-                        <p className="text-slate-300 mb-4 text-sm sm:text-base">{project.description}</p>
+                        <p className="text-slate-300 mb-4 text-sm sm:text-base line-clamp-3">{project.description}</p>
 
                         {/* Tech Stack */}
                         {project.tech && project.tech.length > 0 && (
@@ -214,7 +214,7 @@ export default function Projects() {
                             {project.tech.map(tech => (
                               <span
                                 key={tech}
-                                className="px-2.5 py-1 bg-slate-700/50 text-cyan-300 text-xs sm:text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
+                                className="px-2.5 py-1 bg-slate-700/50 text-cyan-300 text-xs sm:text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all whitespace-nowrap"
                               >
                                 {tech}
                               </span>
@@ -255,7 +255,7 @@ export default function Projects() {
                             href={project.link || '#'}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 sm:px-6 py-2 bg-slate-700 text-slate-300 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-200 font-medium text-sm sm:text-base"
+                            className="flex items-center gap-2 px-4 sm:px-6 py-2 bg-slate-700 text-slate-300 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-200 font-medium text-sm sm:text-base whitespace-nowrap"
                           >
                             <Github size={18} /> View Code
                           </a>
@@ -266,7 +266,7 @@ export default function Projects() {
                               href={project.demo}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center gap-2 px-4 sm:px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium text-sm sm:text-base group-hover:scale-105"
+                              className="flex items-center gap-2 px-4 sm:px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 font-medium text-sm sm:text-base whitespace-nowrap group-hover:scale-105"
                             >
                               <ExternalLink size={18} /> Live Demo
                             </a>
@@ -285,9 +285,9 @@ export default function Projects() {
         {regular && regular.length > 0 && (
           <>
             {featured && featured.length > 0 && (
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Other Projects</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 px-2">Other Projects</h3>
             )}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 px-2">
               {regular.map(project => (
                 <GlareHover
                   key={project.id}
@@ -303,12 +303,12 @@ export default function Projects() {
                       <div className="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">{project.image}</div>
                       <div className="flex items-center gap-1 bg-slate-700/50 px-2 py-1 rounded-lg group-hover:bg-cyan-500/20 transition-all flex-shrink-0">
                         <Star size={14} className="text-yellow-400" fill="currentColor" />
-                        <span className="text-xs text-yellow-400 font-medium">{project.stats?.rating || 4.5}</span>
+                        <span className="text-xs text-yellow-400 font-medium whitespace-nowrap">{project.stats?.rating || 4.5}</span>
                       </div>
                     </div>
 
                     <h3 className="text-base sm:text-xl font-bold text-white mb-2 break-words">{project.title}</h3>
-                    <p className="text-slate-400 mb-4 text-xs sm:text-sm flex-grow">{project.description}</p>
+                    <p className="text-slate-400 mb-4 text-xs sm:text-sm flex-grow line-clamp-2">{project.description}</p>
 
                     {/* Tech Stack */}
                     {project.tech && project.tech.length > 0 && (
@@ -316,7 +316,7 @@ export default function Projects() {
                         {project.tech.map(tech => (
                           <span
                             key={tech}
-                            className="px-2 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all"
+                            className="px-2 py-1 bg-slate-700/50 text-cyan-300 text-xs rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/20 transition-all whitespace-nowrap"
                           >
                             {tech}
                           </span>
@@ -354,7 +354,7 @@ export default function Projects() {
                         href={project.link || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg text-sm"
+                        className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg text-xs sm:text-sm whitespace-nowrap"
                       >
                         <Github size={16} /> Code
                       </a>
@@ -365,7 +365,7 @@ export default function Projects() {
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg text-sm"
+                          className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium flex-1 justify-center py-2 hover:bg-slate-700/50 rounded-lg text-xs sm:text-sm whitespace-nowrap"
                         >
                           <ExternalLink size={16} /> Demo
                         </a>
@@ -380,21 +380,21 @@ export default function Projects() {
 
         {/* Empty State */}
         {filtered && filtered.length === 0 && (
-          <div className="text-center py-12">
+          <div className="text-center py-12 px-2">
             <p className="text-slate-400 text-base sm:text-lg">No projects found in this category.</p>
           </div>
         )}
 
         {/* CTA Section */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <p className="text-slate-400 mb-6 text-sm sm:text-base px-2">
+        <div className="mt-12 sm:mt-16 text-center px-2">
+          <p className="text-slate-400 mb-6 text-sm sm:text-base">
             Want to see more? Check out my GitHub for additional projects and contributions.
           </p>
           <a
             href="https://github.com/royhenry877"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium group hover:scale-105 text-sm sm:text-base"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 font-medium group hover:scale-105 text-sm sm:text-base whitespace-nowrap"
           >
             <Github size={20} />
             Visit My GitHub
