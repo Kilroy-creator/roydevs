@@ -307,54 +307,7 @@ export default function Projects() {
         stars: 92
       }
     },
-    {
-      id: 4,
-      title: 'AI Content Generator',
-      description: 'AI-powered content generation tool using modern APIs for automated content creation and optimization.',
-      image: '🤖',
-      tech: ['React', 'Python', 'OpenAI API'],
-      tags: ['React', 'Backend'],
-      link: 'https://github.com',
-      demo: '#',
-      featured: false,
-      stats: {
-        rating: 4.9,
-        downloads: 4200,
-        stars: 512
-      }
-    },
-    {
-      id: 5,
-      title: 'Social Media Analytics',
-      description: 'Track and analyze social media performance across multiple platforms with detailed insights and reporting.',
-      image: '📱',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      tags: ['React', 'Backend'],
-      link: 'https://github.com',
-      demo: '#',
-      featured: false,
-      stats: {
-        rating: 4.6,
-        downloads: 1200,
-        stars: 98
-      }
-    },
-    {
-      id: 6,
-      title: 'Weather Forecast App',
-      description: 'Beautiful weather application with real-time forecasts, location-based data, and interactive weather maps.',
-      image: '🌤️',
-      tech: ['React', 'Weather API', 'Tailwind'],
-      tags: ['React'],
-      link: 'https://github.com',
-      demo: '#',
-      featured: false,
-      stats: {
-        rating: 4.5,
-        downloads: 890,
-        stars: 67
-      }
-    }
+    
   ];
 
   const tags = ['All', 'React', 'Backend'];
