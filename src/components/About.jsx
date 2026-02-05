@@ -60,7 +60,7 @@ export default function About() {
 
   const handleViewCV = () => {
     // Replace with your actual CV URL
-    const cvUrl = 'https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing';
+    const cvUrl = 'https://docs.google.com/document/d/1aHfDNjpz_3wEEF-XKoKEkU9Cue2IzkS6RaAMLMj-RK4/edit?usp=sharing';
     // Or use a local file:
     // const cvUrl = '/cv.pdf';
     window.open(cvUrl, '_blank');
